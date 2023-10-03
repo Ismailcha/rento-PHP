@@ -64,12 +64,11 @@ $sql = "
     'evenement' AS table_name
   FROM evenement
 ";
-
+print_r($conditions);
 // Build conditions for filtering
 if (!empty($conditions)) {
   $sql .= " WHERE " . implode(" AND ", $conditions);
 }
-
 // Execute the query to count the total records
 $countQuery = $pdo->prepare("SELECT COUNT(*) AS total FROM ($sql) AS filtered_results");
 $countQuery->execute($params);
