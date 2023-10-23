@@ -8,7 +8,6 @@ if (isset($_SESSION['email'])) {
     $req1->bindValue(':email', $e, PDO::PARAM_STR);
     $req1->execute();
     $tableau = $req1->fetch(PDO::FETCH_ASSOC);
-
     $req2 = $pdo->prepare('select * from immoubilier where email=:email');
     $req2->bindValue(':email', $e, PDO::PARAM_STR);
     $req2->execute();
@@ -169,7 +168,7 @@ if (isset($_SESSION['email'])) {
                 </div>
 
                 <div class="row g-4 justify-content-center">
-                    <h3>Immoubilier :</h3>
+                    <h3>Immobilier :</h3>
                     <?php
                     if (isset($tableau2)) {
                         foreach ($tableau2 as $data1) {
